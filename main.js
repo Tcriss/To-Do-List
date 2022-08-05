@@ -2,33 +2,51 @@ const input = document.querySelector('input');
 const addBtn = document.querySelector('.btnadd');
 const ul = document.querySelector('ul');
 const empty = document.querySelector('.empty');
+let tasks = [];
+let id = Date.now();
 
 addBtn.addEventListener("click", (e) => {
-    //Prevenir que la pagina recargue
     e.preventDefault();
-
-    //Recoge el texto del campo
     const text = input.value;
 
     if (text !== "") {
-        //aqui se crea un nuevo list item
-        const li = document.createElement('li');
-        //se crea un parrafo para ser trasladado al list item anterior
+
+        const task = {
+            text,
+            id
+        }
+        tasks = [...tasks,task]
+
+        localStorage.setItem('tasks',JSON.stringify(tasks));
         const p = document.createElement('p');
         p.textContent = text;
-        
-        //aqui finalmente se inserta el Li
+              
+        const li = document.createElement('li');
         li.appendChild(p);
         li.appendChild(DeleteBtn());
         ul.appendChild(li);
         
         input.value = "";
         empty.style.display = "none";
-    } else {
-        alert("No puedes agregar un campo vacio");
+        ul.style.height = "30vh";
     }
-    
 });
+
+function showTasks(){
+    document.addEventListener('DOMContentLoaded',() => {
+        tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks.forEach(task => {
+            const li = document.createElement('li');
+            const p = document.createElement('p');
+            p.innerHTML = `${task.text}`;
+            li.appendChild(p);
+            li.setAttribute("id", `${task.text}`);
+            li.appendChild(DeleteBtn());
+            ul.appendChild(li);
+            empty.style.display = "none";
+        });
+    });
+}
 
 function DeleteBtn() {
     
