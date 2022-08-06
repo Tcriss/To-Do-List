@@ -86,6 +86,11 @@ body {
     border-bottom: 2px solid #243949;
     border-radius: 10px 0px 0px 10px;
   }
+
+  i{
+    color: black;
+    transition: all 500ms;
+  }
   
   .li-container {
     background-color: white;
@@ -146,6 +151,7 @@ body {
     text-align: center;
     align-items: center;
     transition: background-color 500ms;
+    width: 40px;
   }
   
   .btndelete:hover {
@@ -173,6 +179,10 @@ body {
   
   .empty {
     color: darkslategrey;
+    text-align: center;
+    animation: fadeIn;
+    animation-duration: 1s;
+    transition: color 500ms;
   }
 
   .creditos{
