@@ -25,7 +25,7 @@ addBtn.addEventListener("click", (e) => {
         input.value = "";
         empty.style.display = "none";
     } else {
-        alert("No puedes agregar un campo vacio");
+        Message('','Alto ahi!','No puedes agregar listas vacias');
     }
     
 });
@@ -55,7 +55,7 @@ function DeleteBtn() {
     deleteBtn.className = "btndelete";
     
     deleteBtn.addEventListener("click", (e) => {
-        onst task = e.target.parentElement;
+        const task = e.target.parentElement;
         ul.removeChild(task);
         let tasks = JSON.parse( localStorage.getItem('tasks'))
         tasks.splice(e, 1);
@@ -67,4 +67,14 @@ function DeleteBtn() {
         }
     });
     return deleteBtn;
+}
+
+function Message(icono,titulo,mensaje){
+    Swal.fire({
+        position: 'center',
+        icon: icono,
+        title: titulo,
+        text: mensaje,
+        showConfirmButton: false,
+    });
 }
