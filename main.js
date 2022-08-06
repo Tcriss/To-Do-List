@@ -61,7 +61,7 @@ function DeleteBtn(e) {
     deleteBtn.className = "btndelete";
     
     deleteBtn.addEventListener("click", (e) => {
-        const task = e.target.parentElement;
+        const task = e.target.parentNode.parentNode;
         ul.removeChild(task);
         let tasks = JSON.parse(localStorage.getItem('tasks'));
         tasks.splice(e, 1);
