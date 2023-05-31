@@ -42,6 +42,7 @@ body {
     text-align: center;
     color: darkslategrey;
     font-family: pacifico;
+    transition: color 500ms;
   }
 
   .logo{
@@ -60,6 +61,7 @@ body {
     background-color: rgb(255, 255, 255);
     padding: 30px;
     border-radius: 10px;
+    transition: background-color 500ms;
   }
   
   .search {
@@ -78,7 +80,16 @@ body {
     padding: 15px 10px;
     outline: none;
     width: 90%;
+    border-left: 2px solid #243949;
+    border-right: 0px solid #243949;
+    border-top: 2px solid #243949;
+    border-bottom: 2px solid #243949;
     border-radius: 10px 0px 0px 10px;
+  }
+
+  i{
+    color: black;
+    transition: all 500ms;
   }
   
   .li-container {
@@ -90,67 +101,97 @@ body {
   
   ul {
     padding: 0;
+    overflow-y: scroll;
+    transition: background-color 500ms;
+  }
+
+  ul::-webkit-scrollbar{
+    width: 5px;
+  }
+
+  ul::-webkit-scrollbar-thumb{
+    background-color: #a4a4a4;
+    border-radius: 5px;
   }
   
   li {
+    width: 100%;
     list-style: none;
     background-color: lightgray;
     border-radius: 10px;
     margin-top: 15px;
     display: flex;
+
+    animation: zoomIn;
+    animation-duration: 300ms;
   }
   
   li p {
     margin: 0;
     padding: 15px;
-    width: 100%;
+    width: 90%;
+    overflow: auto;
+  }
+
+  li p::-webkit-scrollbar{
+    height: 6px;
+  }
+
+  li p::-webkit-scrollbar-thumb{
+    background-color: #a4a4a4;
+    border-radius: 5px;
   }
   
   .btndelete {
-    padding: 5px 15px;
+    display: flex;
     border: none;
-    font-family: raleway;
-    background-color: #95213c;
-    color: white;
+    background-color: #24394900;
     outline: none;
     border-radius: 0px 10px 10px 0px;
-    width: 45px;
-    font-size: 1.4em;
+    text-align: center;
+    align-items: center;
+    transition: background-color 500ms;
+    width: 40px;
   }
   
   .btndelete:hover {
     cursor: pointer;
     background-color: rgb(255, 0, 0);
-    transition: all 0.5s;
   }
   
   .btnadd {
-    padding: 5px 15px;
-    border: none;
-    color: white;
+    padding: 5px 5px;
+    border-left: 2px transparent;
+    border-right: 2px solid #243949;
+    border-top: 2px solid #243949;
+    border-bottom: 2px solid #243949;
     font-family: fantasy;
-    background-color: rgb(37, 59, 131);
-    font-size: 1.4rem;
+    background-color: rgb(255, 255, 255);
     outline: none;
     border-radius: 0px 10px 10px 0px;
+    transition: background-color 500ms;
   }
   
   .btnadd:hover {
     cursor: pointer;
-    background-color: rgb(154, 154, 154);
-    transition: all 0.5s;
+    background-color: rgb(0, 183, 255);
   }
   
   .empty {
     color: darkslategrey;
+    text-align: center;
+    animation: fadeIn;
+    animation-duration: 1s;
+    transition: color 500ms;
   }
 
-  .creditos{
-      font-family: Bungee-Shade;
-      font-size: 2.2rem;
-      color: rgb(0, 0, 0);
-      text-align: center;
-    }
+.error{
+  background-color: lightgray;
+  width: 96%;
+  color: rgb(191, 33, 33);
+  padding: 12px;
+  border-radius: 10px;
+}
 
   @media screen and (max-width: 550px){
       .container{
